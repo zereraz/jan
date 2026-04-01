@@ -7,40 +7,7 @@ import { nodePolyfills } from 'vite-plugin-node-polyfills'
 import packageJson from './package.json'
 const host = process.env.TAURI_DEV_HOST
 
-// Plugin to inject GA scripts in HTML
-function injectGoogleAnalytics(gaMeasurementId?: string): Plugin {
-  return {
-    name: 'inject-google-analytics',
-    transformIndexHtml(html) {
-      // Only inject GA scripts if GA_MEASUREMENT_ID is set
-      if (!gaMeasurementId) {
-        // Remove placeholder if no GA ID
-        return html.replace(/\s*<!-- INJECT_GOOGLE_ANALYTICS -->\n?/g, '')
-      }
-
-      const gaScripts = `<!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){ dataLayer.push(arguments); }
-      gtag('consent','default',{
-        ad_storage:'denied',
-        analytics_storage:'denied',
-        ad_user_data:'denied',
-        ad_personalization:'denied',
-        wait_for_update:500
-      });
-      gtag('js', new Date());
-      gtag('config', '${gaMeasurementId}', {
-        debug_mode: (location.hostname === 'localhost'),
-        send_page_view: false
-      });
-    </script>`
-
-      return html.replace('<!-- INJECT_GOOGLE_ANALYTICS -->', gaScripts)
-    },
-  }
-}
+// GA removed — no tracking
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
@@ -59,7 +26,6 @@ export default defineConfig(({ mode }) => {
       nodePolyfills({
         include: ['path'],
       }),
-      injectGoogleAnalytics(env.GA_MEASUREMENT_ID),
     ],
     resolve: {
       alias: {
@@ -90,9 +56,9 @@ export default defineConfig(({ mode }) => {
 
       VERSION: JSON.stringify(packageJson.version),
 
-      POSTHOG_KEY: JSON.stringify(env.POSTHOG_KEY),
-      POSTHOG_HOST: JSON.stringify(env.POSTHOG_HOST),
-      GA_MEASUREMENT_ID: JSON.stringify(env.GA_MEASUREMENT_ID),
+      POSTHOG_KEY: JSON.stringify(''),
+      POSTHOG_HOST: JSON.stringify(''),
+      GA_MEASUREMENT_ID: JSON.stringify(''),
       MODEL_CATALOG_URL: JSON.stringify(
         'https://raw.githubusercontent.com/janhq/model-catalog/main/model_catalog_v2.json'
       ),

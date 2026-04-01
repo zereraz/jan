@@ -22,8 +22,8 @@ use url::Url;
 const JAN_MIRROR_PREFIX_STABLE: &str = "https://apps.jan.ai/";
 const JAN_MIRROR_PREFIX_NIGHTLY: &str = "https://apps-nightly.jan.ai/";
 
-/// Domains that should use mirror download with fallback
-const MIRROR_DOMAINS: &[&str] = &["huggingface.co"];
+/// Mirror disabled — download directly from source, no Jan proxy
+const MIRROR_DOMAINS: &[&str] = &[];
 
 /// Check if this is a nightly build based on package name
 fn is_nightly_build() -> bool {
