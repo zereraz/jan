@@ -252,7 +252,10 @@
         { "value": "q4_1", "name": "q4_1" },
         { "value": "iq4_nl", "name": "iq4_nl" },
         { "value": "q5_0", "name": "q5_0" },
-        { "value": "q5_1", "name": "q5_1" }
+        { "value": "q5_1", "name": "q5_1" },
+        { "value": "turbo2", "name": "turbo2 (2-bit, 6.4x)" },
+        { "value": "turbo3", "name": "turbo3 (3.5-bit, 4.6x)" },
+        { "value": "turbo4", "name": "turbo4 (4.25-bit, 3.8x)" }
       ]
     }
   },
@@ -272,7 +275,10 @@
         { "value": "q4_1", "name": "q4_1" },
         { "value": "iq4_nl", "name": "iq4_nl" },
         { "value": "q5_0", "name": "q5_0" },
-        { "value": "q5_1", "name": "q5_1" }
+        { "value": "q5_1", "name": "q5_1" },
+        { "value": "turbo2", "name": "turbo2 (2-bit, 6.4x)" },
+        { "value": "turbo3", "name": "turbo3 (3.5-bit, 4.6x)" },
+        { "value": "turbo4", "name": "turbo4 (4.25-bit, 3.8x)" }
       ]
     }
   },
