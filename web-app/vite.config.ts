@@ -66,7 +66,7 @@ export default defineConfig(({ mode }) => {
         'https://raw.githubusercontent.com/janhq/model-catalog/main/latest_jan_model.json'
       ),
       AUTO_UPDATER_DISABLED: JSON.stringify(
-        env.AUTO_UPDATER_DISABLED === 'true'
+        true || env.AUTO_UPDATER_DISABLED === 'true'
       ),
       UPDATE_CHECK_INTERVAL_MS: JSON.stringify(
         Number(env.UPDATE_CHECK_INTERVAL_MS) || 60 * 60 * 1000
