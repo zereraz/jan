@@ -60,4 +60,4 @@ else
 fi
 
 echo "=== Pushing to fork ==="
-git push origin no-tracking --force-with-lease
+git push origin main --force-with-lease
