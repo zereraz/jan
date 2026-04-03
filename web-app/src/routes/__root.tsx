@@ -13,8 +13,6 @@ import { ExtensionProvider } from '@/providers/ExtensionProvider'
 import { ToasterProvider } from '@/providers/ToasterProvider'
 import { useAnalytic } from '@/hooks/useAnalytic'
 import { PromptAnalytic } from '@/containers/analytics/PromptAnalytic'
-import { useJanModelPrompt } from '@/hooks/useJanModelPrompt'
-import { PromptJanModel } from '@/containers/PromptJanModel'
 import { AnalyticProvider } from '@/providers/AnalyticProvider'
 import { useLeftPanel } from '@/hooks/useLeftPanel'
 import ToolApproval from '@/containers/dialogs/ToolApproval'
@@ -37,7 +35,7 @@ export const Route = createRootRoute({
 
 const AppLayout = () => {
   const { productAnalyticPrompt } = useAnalytic()
-  const { showJanModelPrompt } = useJanModelPrompt()
+
   const {
     open: isLeftPanelOpen,
     setLeftPanel,
@@ -82,7 +80,6 @@ const AppLayout = () => {
         </SidebarInset>
 
         {productAnalyticPrompt && <PromptAnalytic />}
-        {showJanModelPrompt && <PromptJanModel />}
       </SidebarProvider>
     </div>
   )
