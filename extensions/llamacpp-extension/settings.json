@@ -239,10 +239,10 @@
   {
     "key": "cache_type_k",
     "title": "KV Cache K Type",
-    "description": "KV cache data type for Keys (default: turbo3).",
+    "description": "KV cache data type for Keys (default: q8_0).",
     "controllerType": "dropdown",
     "controllerProps": {
-      "value": "turbo3",
+      "value": "q8_0",
       "options": [
         { "value": "f32", "name": "f32" },
         { "value": "f16", "name": "f16" },
@@ -262,10 +262,10 @@
   {
     "key": "cache_type_v",
     "title": "KV Cache V Type",
-    "description": "KV cache data type for Values (default: turbo3).",
+    "description": "KV cache data type for Values (default: q8_0).",
     "controllerType": "dropdown",
     "controllerProps": {
-      "value": "turbo3",
+      "value": "q8_0",
       "options": [
         { "value": "f32", "name": "f32" },
         { "value": "f16", "name": "f16" },

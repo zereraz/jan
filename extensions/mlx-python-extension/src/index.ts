@@ -386,9 +386,8 @@ export default class mlx_python_extension extends AIEngine {
 
     const baseUrl = `http://localhost:${sessionInfo.port}/v1`
     const url = `${baseUrl}/chat/completions`
-    const headers = {
+    const headers: Record<string, string> = {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${sessionInfo.api_key}`,
     }
 
     const body = JSON.stringify(opts)

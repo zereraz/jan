@@ -296,7 +296,10 @@ pub async fn load_mlx_model<R: Runtime>(
                 Some(e.to_string()),
             )
         })?
-        .join(format!("resources/bin/{}", binary_name.as_deref().unwrap_or("mlx-server")));
+        .join(format!("resources/bin/{}", match binary_name.as_deref() {
+            Some("mlx-server-python") => "mlx-server-python",
+            _ => "mlx-server",
+        }));
 
     load_mlx_model_impl(
         state.mlx_server_process.clone(),
