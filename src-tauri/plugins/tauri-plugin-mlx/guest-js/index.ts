@@ -22,7 +22,8 @@ export async function loadMlxModel(
   cfg: MlxConfig,
   envs: Record<string, string>,
   isEmbedding: boolean = false,
-  timeout: number = 600
+  timeout: number = 600,
+  binaryName?: string
 ): Promise<SessionInfo> {
   const config = normalizeMlxConfig(cfg)
   return await invoke('plugin:mlx|load_mlx_model', {
@@ -33,6 +34,7 @@ export async function loadMlxModel(
     envs,
     isEmbedding,
     timeout,
+    binaryName: binaryName ?? null,
   })
 }
 

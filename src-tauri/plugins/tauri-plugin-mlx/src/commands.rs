@@ -283,6 +283,7 @@ pub async fn load_mlx_model<R: Runtime>(
     envs: HashMap<String, String>,
     is_embedding: bool,
     timeout: u64,
+    binary_name: Option<String>,
 ) -> ServerResult<SessionInfo> {
     let state: State<MlxState> = app_handle.state();
     let binary_path = app_handle
@@ -295,7 +296,8 @@ pub async fn load_mlx_model<R: Runtime>(
                 Some(e.to_string()),
             )
         })?
-        .join("resources/bin/mlx-server");
+        .join(format!("resources/bin/{}", binary_name.as_deref().unwrap_or("mlx-server")));
+
     load_mlx_model_impl(
         state.mlx_server_process.clone(),
         &binary_path,
